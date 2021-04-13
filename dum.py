@@ -253,7 +253,7 @@ def idfrom_teman():
             print '\r\x1b[0;97m ',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m' + a['id'] + '|' + a[['first_name']]
+            print '\x1b[0;97m' + a['id'] + '|' + a['first_name']
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
