@@ -506,14 +506,14 @@ def a_s():
         print 47 * '-'
 	idt = raw_input("[+] Input ID : ")
 	try:
-		jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+		jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
 		op = json.loads(jok.text)
 		print"[✓] Account Name : "+op["name"]
 	except KeyError:
 		print"[!] Friend Not Found"
 		raw_input("Press Enter To Back ")
 		grab()
-	r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+toket)
+	r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+token)
 	z=json.loads(r.text)
 	hamza('[✓] Getting Friends Numeric IDs...')
 	print"--------------------------------------"
