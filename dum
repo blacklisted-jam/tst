@@ -1,0 +1,169 @@
+def dump():
+    os.system('clear')
+    try:
+        toket = open('login.txt', 'r').read()
+    except IOError:
+        print ' Token invalid '
+        os.system('rm -rf login.txt')
+        time.sleep(0.01)
+        masuk()
+
+    os.system('clear')
+    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print 50 * '\x1b[1;91m\xe2\x94\x80'
+    print '\x1b[0;97m1).\x1b[0;97m Dump ID Dari Daftar Teman '
+    print '\x1b[0;97m2).\x1b[0;97m \x1b[0;97mDump ID Dari Teman/Publik '
+    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m \x1b[0;97mKeluar '
+    print 50 * '\x1b[1;91m\xe2\x94\x80'
+    dump_pilih()
+
+
+def dump_pilih():
+    cuih = raw_input(' *--> ')
+    if cuih == '':
+        print ' Isi Yg Benar Sayang!'
+        dump_pilih()
+    elif cuih == '1' or cuih == '01':
+        id_teman()
+    elif cuih == '2' or cuih == '02':
+        idfrom_teman()
+    elif cuih == '0' or cuih == '00':
+        os.sys.exit()
+    else:
+        print ' Isi Yg Benar Sayang!'
+        dump_pilih()
+
+
+def id_teman():
+    os.system('clear')
+    try:
+        toket = open('login.txt', 'r').read()
+    except IOError:
+        print ' Token invalid'
+        os.system('rm -rf login.txt')
+        time.sleep(0.01)
+        masuk()
+
+    try:
+        os.mkdir('out')
+    except OSError:
+        pass
+
+    try:
+        os.system('clear')
+        os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        r = requests.get('https://graph.facebook.com/me/friends?access_token=' + toket)
+        z = json.loads(r.text)
+        jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Mengambil semua ID Teman \x1b[0;97m...')
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        bz = open('out/id_teman.txt', 'w')
+        for a in z['data']:
+            idteman.append(a['id'])
+            bz.write(a['id'] + '\n')
+            print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m)\x1b[0;94m > ',
+            sys.stdout.flush()
+            time.sleep(0.005)
+            print '\x1b[0;97m' + a['id']
+
+        bz.close()
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        print '\r\x1b[0;97m(\x1b[0;92m\xe2\x9c\x93\x1b[0;97m) \x1b[0;97mSukses Mengambil ID \x1b[0;97m....'
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mTotal ID\x1b[0;91m :\x1b[0;97m %s' % len(idteman)
+        done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Simpan Nama File\x1b[0;91m : \x1b[0;97m')
+        os.rename('out/id_teman.txt', 'out/' + done)
+        print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) File tersimpan \x1b[0;91m: \x1b[0;97mout/' + done
+        print '\n\x1b[1;91m\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80'
+        raw_input('\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except IOError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Gagal membuat file'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except (KeyboardInterrupt, EOFError):
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti ! '
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except KeyError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Gagal !'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except OSError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File anda tidak tersimpan !'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except requests.exceptions.ConnectionError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
+        keluar()
+
+
+def idfrom_teman():
+    os.system('clear')
+    try:
+        toket = open('login.txt', 'r').read()
+    except IOError:
+        print ' Token Invalid'
+        os.system('rm -rf login.txt')
+        time.sleep(0.01)
+        masuk()
+
+    try:
+        os.mkdir('out')
+    except OSError:
+        pass
+
+    try:
+        os.system('clear')
+        os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        idt = raw_input(' User ID Target : ')
+        try:
+            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
+            op = json.loads(jok.text)
+            print ' Nama Akun      : ' + op['name']
+        except KeyError:
+            print ' ID Publik Tidak Ada !'
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+        z = json.loads(r.text)
+        jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mMengambil Semua ID ...')
+        print 50 * '\x1b[1;91m\xe2\x94\x80'
+        bz = open('out/id_teman_from_teman.txt', 'w')
+        for a in z['friends']['data']:
+            idfromteman.append(a['id'])
+            bz.write(a['id'] + '\n')
+            print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
+            sys.stdout.flush()
+            time.sleep(0.005)
+            print '\x1b[0;97m ' + a['id']
+
+        bz.close()
+        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
+        print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
+        done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mSimpan Nama File : ')
+        os.rename('out/id_teman_from_teman.txt', 'out/' + done)
+        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File tersimpan : out/' + done
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except OSError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File tidak tersimpan '
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except IOError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error creating file'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except (KeyboardInterrupt, EOFError):
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti '
+        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        dump()
+    except KeyError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Teman tidak ada !'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mkembali\x1b[0;97m)')
+        dump()
+    except requests.exceptions.ConnectionError:
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
+        keluar()
