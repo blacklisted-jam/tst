@@ -72,6 +72,9 @@ logo = """
 \033[1;91m-----------------------------------------------"""
 
 
+threads = []
+idfromteman = []
+
 def reg():
     os.system('clear')
     print logo
@@ -148,7 +151,7 @@ def ip():
     print ' Loading ...'
     time.sleep(1)
     log_menu()
-
+	
 
 def log_menu():
     
@@ -665,7 +668,7 @@ def dump():
         time.sleep(0.01)
         log_menu()
     try:
-        r = requests.get('https://graph.facebook.com/me?access_token=' + token)
+        r = requests.get('https://graph.facebook.com/me?access_token=' + toket)
         q = json.loads(r.text)
         z = q['name']
     except (KeyError, IOError):
@@ -702,10 +705,10 @@ def dump():
 
 
 def idfrom_teman():
+    global toket
     os.system('clear')
     try:
 	token = open('access_token.txt', 'r').read()
-        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         time.sleep(0.01)
@@ -727,27 +730,23 @@ def idfrom_teman():
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
             print ' Nama Akun      : ' + op['name']
-        except KeyError:
-            print ' ID Publik Tidak Ada !'
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
-        q = json.loads(r.text)
-	z = q['name']
-	print ' Name User      : ' + op['name']
-        jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
-        print 50 * '\x1b[1;91m\xe2\x94\x80'
-        bz = open('out/id_teman_from_teman.txt', 'w')
-        for a in q['friends']['data']:
-	    uid = i['id']
-            na = i['name']
-            nm = na.rsplit(' ')[0]
-            idfromteman.append(uid + '|' + nm)
-            bz.write(uid + '|' + nm)
-            print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
-            sys.stdout.flush()
-            time.sleep(0.005)
-            print '\x1b[0;97m ' + a['id']
+            r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+            q = json.loads(r.text)
+	    z = q['name']
+	    print ' Name User      : ' + op['name']
+            jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
+            print 50 * '\x1b[1;91m\xe2\x94\x80'
+            bz = open('out/id_teman_from_teman.txt', 'w')
+            for a in q['friends']['data']:
+	        uid = i['id']
+                na = i['name']
+                nm = na.rsplit(' ')[0]
+                idfromteman.append(uid + '|' + nm)
+                bz.write(uid + '|' + nm)
+                print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
+                sys.stdout.flush()
+                time.sleep(0.005)
+                print '\x1b[0;97m '(uid + '|' + nm)
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
