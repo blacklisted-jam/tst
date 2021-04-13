@@ -228,7 +228,7 @@ def idfrom_teman():
         bz = open('out/id_teman_from_teman.txt', 'w')
         for a in z['friends']['data']:
             idfromteman.append(a['id'] + op['name'])
-            bz.write(a['id'] + op['name'] '\n')
+            bz.write(a['id'] + op['name']
             print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
