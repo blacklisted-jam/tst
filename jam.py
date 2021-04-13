@@ -722,7 +722,6 @@ def idfrom_teman():
         print logo
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         idt = raw_input(' User ID Target : ')
-    try:
         r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + token)
         q = json.loads(r.text)
 	z = q['name']
