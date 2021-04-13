@@ -1,3 +1,69 @@
+#-*-coding:utf-8-*-
+
+import os, re, sys, itertools, time, requests, random, threading, json, random
+from multiprocessing.pool import ThreadPool
+from requests.exceptions import ConnectionError
+reload(sys)
+sys.setdefaultencoding('utf8')
+try:
+    import mechanize
+except ImportError:
+    os.system('pip2 install mechanize')
+
+try:
+    import bs4
+except ImportError:
+    os.system('pip2 install bs4')
+
+try:
+    import requests
+except ImportError:
+    os.system('pip2 install requests')
+    os.system('python2 dump.py')
+    
+from mechanize import Browser
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+br.addheaders = [('User-Agent', 'Mozilla/5.0 (Linux; Android 9; Infinix X652B Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/85.0.4183.81 Mobile Safari/537.36 [FBAN/FB4A;FBAV/286.0.0.48.112;FBBV/242171848;FBDM/{density=2.0,width=720,height=1428};FBLC/en_US;FBRV/243389251;FBCR/Warid;FBMF/INFINIX MOBILITY LIMITED;FBBD/Infinix;FBPN/com.facebook.katana;FBDV/Infinix X652B;FBSV/9;FBOP/19;FBCA/arm64-v8a:;]')]
+br.addheaders = [('User-Agent', 'Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]')]
+os.system('clear')
+done = False
+
+#def animate():
+ #   for c in itertools.cycle(['\x1b[0;91m.', '\x1b[0;93m.', '\x1b[0;91m.', '\x1b[0;93m.']):
+   #     if done:
+        #    break
+    #    sys.stdout.write('\r\x1b[0;97mLoading ' + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c + c)
+      #  sys.stdout.flush()
+        #time.sleep(0.1)
+
+
+#t = threading.Thread(target=animasis)
+#t.start()
+#time.sleep(5)
+#done = True
+
+def keluar():
+    print '\x1b[0;91m•\x1b[0;93m Sampai Jumpa :)\x1b[0;97m'
+    os.sys.exit()
+
+
+def jalan(z):
+    for e in z + '\n':
+        sys.stdout.write(e)
+        sys.stdout.flush()
+        time.sleep(0.03)
+        
+logo = ('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+
+back = 0
+threads = []
+id = []
+idteman = []
+idfromteman = []
+
+
 def dump():
     os.system('clear')
     try:
@@ -6,7 +72,7 @@ def dump():
         print ' Token invalid '
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        masuk()
+        os.system('python2 jam.py')
 
     os.system('clear')
     os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
@@ -42,7 +108,7 @@ def id_teman():
         print ' Token invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        masuk()
+        os.system('python2 jam.py')
 
     try:
         os.mkdir('out')
@@ -106,7 +172,7 @@ def idfrom_teman():
         print ' Token Invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        masuk()
+        os.system('python2 jam.py')
 
     try:
         os.mkdir('out')
@@ -167,3 +233,10 @@ def idfrom_teman():
     except requests.exceptions.ConnectionError:
         print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
         keluar()
+        
+        
+if __name__ == '__main__':
+	dump()
+	masuk()
+        
+
