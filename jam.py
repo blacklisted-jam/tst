@@ -492,8 +492,8 @@ def a_s():
 	    crack()
     elif a_s == '4':
 	try:
-        os.mkdir('out')
-    except OSError:
+            os.mkdir('out')
+        except OSError:
         pass
 	os.system('clear')
         print logo
