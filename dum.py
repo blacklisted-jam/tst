@@ -215,7 +215,6 @@ def idfrom_teman():
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
-	    z = op['name']
             print ' Nama Akun      : ' + op['name']
         except KeyError:
             print ' ID Publik Tidak Ada !'
@@ -236,7 +235,7 @@ def idfrom_teman():
             print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m ' + i['id'] + '|' + i['name']
+            print '\x1b[0;97m ' + uid + '|' + nm
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
