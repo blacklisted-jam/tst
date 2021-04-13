@@ -653,7 +653,7 @@ def dump():
         r = requests.get('https://graph.facebook.com/me?access_token=' + token)
         q = json.loads(r.text)
         z = q['name']
-	except (KeyError, IOError):
+    except (KeyError, IOError):
         print logo
         print ''
         print '\t Account Cheekpoint\x1b[0;97m'
