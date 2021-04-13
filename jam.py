@@ -748,33 +748,33 @@ def idfrom_teman():
                 time.sleep(0.005)
                 print '\x1b[0;97m '(uid + '|' + nm)
 
-        bz.close()
-        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
-        print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
-        done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mSimpan Nama File : ')
-        os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File tersimpan : out/' + done
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-        dump()
-    except OSError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File tidak tersimpan '
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-        dump()
-    except IOError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error creating file'
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-        dump()
-    except (KeyboardInterrupt, EOFError):
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti '
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-        dump()
-    except KeyError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Teman tidak ada !'
-        raw_input('\n\x1b[0;97m(\x1b[0;91mkembali\x1b[0;97m)')
-        dump()
-    except requests.exceptions.ConnectionError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
-        keluar()
+            bz.close()
+            print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
+            print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
+            done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mSimpan Nama File : ')
+            os.rename('out/id_teman_from_teman.txt', 'out/' + done)
+            print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File tersimpan : out/' + done
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+        except OSError:
+            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File tidak tersimpan '
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+        except IOError:
+            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error creating file'
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+        except (KeyboardInterrupt, EOFError):
+            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti '
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+        except KeyError:
+            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Teman tidak ada !'
+            raw_input('\n\x1b[0;97m(\x1b[0;91mkembali\x1b[0;97m)')
+            dump()
+        except requests.exceptions.ConnectionError:
+            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
+            keluar()
 
 if __name__ == '__main__':
     reg()
