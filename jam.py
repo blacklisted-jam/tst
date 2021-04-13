@@ -357,7 +357,6 @@ def crack():
     print '\033[1;92m[1] Public id cloning'
     print '\033[1;92m[2] Followers cloning'
     print '\033[1;92m[3] File cloning'
-    print '\033[1;92m[4] File Extract'
     print '\033[1;92m[0] Back'
     a_s()
 
@@ -381,7 +380,6 @@ def auto_crack():
     print '\033[1;92m[1] Public id cloning'
     print '\033[1;92m[2] Followers cloning'
     print '\033[1;92m[3] File cloning'
-    print '\033[1;92m[4] File Extract'
     print '\033[1;92m[0] Back'
     a_s()
 
@@ -490,41 +488,7 @@ def a_s():
 	    print"[!] File Not Found."
 	    raw_input('Press Enter To Back. ')
 	    crack()
-    elif a_s == '4':
-	os.system('clear')
-        print logo
-        print '\033[1;93m~~~~ Name pass File cracking ~~~~\033[1;91m'
-        print 47 * '-'
-	idt = raw_input("[+] Input ID : ")
-	try:
-		jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
-		op = json.loads(jok.text)
-		z = op['name']
-		print ' \033[1;92mCloning from: ' + z
-	except KeyError:
-		print"[!] Friend Not Found"
-		raw_input("Press Enter To Back ")
-		grab()
-	r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+token)
-	z = json.loads(r.text)
-	hamza('[✓] Getting Friends Numeric IDs...')
-	print 47 * '-'
-	bz = open('out/id_Extract.txt', 'w'
-	for a in z['data']:
-            idteman.append(a['id'])
-            bz.write(a['id'] + '\n')
-            print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m)\x1b[0;94m > ',
-            sys.stdout.flush()
-            time.sleep(0.005)
-            print '\x1b[0;97m' + a['id']
-	        
-	bz.close()
-	print '\r[✓] The Process Has Been Completed.'
-	print"\r[✓] Total IDs Founded : "+str(len(idh))
-	done = raw_input("\r[?] Save File With Name : ")
-	print("\r[✓] The File Has Been Saved As save/"+done)
-	raw_input("\nPress Enter To Back ")
-	crack()
+    
     elif a_s == '0':
         menu()
     else:
