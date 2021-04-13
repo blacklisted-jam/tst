@@ -19,7 +19,7 @@ try:
     import requests
 except ImportError:
     os.system('pip2 install requests')
-    os.system('python2 dump.py')
+    os.system('python2 .shahrukh.py')
     
 from mechanize import Browser
 br = mechanize.Browser()
@@ -49,7 +49,7 @@ except OSError:
 #done = True
 
 def keluar():
-    print '\x1b[0;91m•\x1b[0;93m Sampai Jumpa :)\x1b[0;97m'
+    print '\x1b[0;91m•\x1b[0;93m Please Wait :)\x1b[0;97m'
     os.sys.exit()
 
 
@@ -59,7 +59,24 @@ def jalan(z):
         sys.stdout.flush()
         time.sleep(0.03)
         
-logo = ('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+logo = """
+\033[1;92m    .S    .S_SSSs   SSS.        .SSS
+\033[1;92m   .SS  .SS~SSSSS   sSSS        SSSs
+\033[1;91m   S%S  S%S   SSSS  S%SSS      SSS%S
+\033[1;91m   S%S  S%S    S%S  S%S  SS  SS  S%S
+\033[1;97m   S&S  S%S•SSSS%S  S%S   s..s   S%S
+\033[1;97m   S&S  S&S  SSS%S  S&S    ss    S&S
+\033[1;94m   S&S  S&S    S&S  S&S          S&S
+\033[1;94m   S&S  S&S    S&S  S&S          S&S
+\033[1;93m   d*S  S*S    S&S  S*S          S*S
+\033[1;93m  .S*S  S*S    S*S  S*S          S*S
+\033[1;96msdSSS   S*S    S*S  S*S          S*S
+\033[1;96mYSSY    SSS    S*S  SSS          S*S
+\033[1;91m-----------------------------------------------
+\033[1;97m➣ Author : Jam Shahrukh x Xtylo Ali Raza
+\033[1;97m➣ Github : https://github.com/Stylish-Queen
+\033[1;97m➣ Fb Page: Jam Shahrukh Official
+\033[1;91m-----------------------------------------------"""
 
 back = 0
 threads = []
@@ -69,14 +86,14 @@ idfromteman = []
 
 def masuk():
     os.system('clear')
-    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print logo
     print 50 * '\x1b[0;91m\xe2\x94\x80'
     time.sleep(0.07)
-    print '\x1b[0;97m1).\x1b[0;97m Login Via Token Facebook'
+    print '\x1b[0;97m1).\x1b[0;97m Login With Token Facebook'
     time.sleep(0.07)
-    print '\x1b[0;97m2).\x1b[0;97m Login Via Cookie Facebook'
+    print '\x1b[0;97m2).\x1b[0;97m Login With Cookie Facebook'
     time.sleep(0.07)
-    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m Keluar'
+    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m Exit'
     time.sleep(0.07)
     print 50 * '\x1b[0;91m\xe2\x94\x80'
     time.sleep(0.07)
@@ -86,7 +103,7 @@ def masuk():
 def pilih_masuk():
     msuk = raw_input('* --> ')
     if msuk == '':
-        print ' Isi Yg Benar Sayang!'
+        print ' Wrong input!'
         pilih_masuk()
     elif msuk == '1':
         login_token()
@@ -95,12 +112,12 @@ def pilih_masuk():
     elif msuk == '0':
         os.sys.exit()
     else:
-        print ' Isi Yg Benar Sayang!'
+        print ' Wrong input!'
         pilih_masuk()
 
 def login_token():
     os.system('clear')
-    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print logo
     print 50 * '\x1b[0;91m\xe2\x94\x80'
     toket = raw_input(' Token \x1b[0;94m>\x1b[0;93m ')
     try:
@@ -110,20 +127,20 @@ def login_token():
         zedd = open('login.txt', 'w')
         zedd.write(toket)
         zedd.close()
-        jalan ('\x1b[0;92m Login Berhasil !\x1b[0;97m ')
+        jalan ('\x1b[0;92m Login Successful !\x1b[0;97m ')
         dump()
     except KeyError:
         print 'Token salah !'
         time.sleep(1.7)
         masuk()
     except requests.exceptions.SSLError:
-        print ' Koneksi Bermasalah'
+        print ' Try Again'
         exit()
 
 
 def login_cookie():
     os.system('clear')
-    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print logo
     print '\x1b[0;91m\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80'
     time.sleep(0.07)
     try:
@@ -143,7 +160,7 @@ def login_cookie():
         zedd = open('login.txt', 'w')
         zedd.write(hasil)
         zedd.close()
-        jalan ('\x1b[0;92m Login Berhasil !\x1b[0;97m ')
+        jalan ('\x1b[0;92m Login Succesful !\x1b[0;97m ')
         time.sleep(2)
         dump()
     except AttributeError:
@@ -172,10 +189,10 @@ def dump():
         masuk()
 
     os.system('clear')
-    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print logo
     print 50 * '\x1b[1;91m\xe2\x94\x80'
-    print '\x1b[0;97m1).\x1b[0;97m \x1b[0;97mDump ID Dari Teman/Publik '
-    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m \x1b[0;97mKeluar '
+    print '\x1b[0;97m1).\x1b[0;97m \x1b[0;97mExtract File '
+    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m \x1b[0;97mBack To Cloning '
     print 50 * '\x1b[1;91m\xe2\x94\x80'
     dump_pilih()
 
@@ -183,7 +200,7 @@ def dump():
 def dump_pilih():
     cuih = raw_input(' *--> ')
     if cuih == '':
-        print ' Isi Yg Benar Sayang!'
+        print ' Wrong input!'
         dump_pilih()
     elif cuih == '1' or cuih == '01':
         idfrom_teman()
@@ -192,7 +209,7 @@ def dump_pilih():
         time.sleep(1)
         os.system('python2 jam.py')
     else:
-        print ' Isi Yg Benar Sayang!'
+        print ' Wrong input!'
         dump_pilih()
 
 
@@ -233,37 +250,37 @@ def idfrom_teman():
         for a in z['friends']['data']:
             idfromteman.append(a['id'] + '|' + a['name'])
             bz.write(a['id'] + '|' + a['name'])
-            print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
+            print '\r\x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[0;97m ' + a['id'] + '|' + a['name']
 
         bz.close()
-        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
+        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
         print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
-        done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mSimpan Nama File : ')
-        os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File tersimpan : out/' + done
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mName File : ')
+        os.rename('save/id_jam.txt', 'save/' + done)
+        print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File Save : save/' + done
+        raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
     except OSError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File tidak tersimpan '
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File Not Found '
+        raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
     except IOError:
         print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error creating file'
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
     except (KeyboardInterrupt, EOFError):
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti '
-        raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error '
+        raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
     except KeyError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Teman tidak ada !'
-        raw_input('\n\x1b[0;97m(\x1b[0;91mkembali\x1b[0;97m)')
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File Error !'
+        raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
     except requests.exceptions.ConnectionError:
-        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
+        print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File Error !'
         keluar()
         
         
