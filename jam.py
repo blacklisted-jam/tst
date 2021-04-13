@@ -494,7 +494,7 @@ def a_s():
 	try:
             os.mkdir('out')
         except OSError:
-        pass
+            pass
 	os.system('clear')
         print logo
         print '\033[1;93m~~~~ Name pass File cracking ~~~~\033[1;91m'
