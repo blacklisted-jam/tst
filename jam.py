@@ -509,15 +509,15 @@ def a_s():
 		print"[!] Friend Not Found"
 		raw_input("Press Enter To Back ")
 		grab()
-	r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+token)
-	z=json.loads(r.text)
+	r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+token)
+	z = json.loads(r.text)
 	hamza('[✓] Getting Friends Numeric IDs...')
 	print"--------------------------------------"
 	bz = open('out/id_Extract.txt', 'w'
-	for a in z['friends']['data']:
-		idh.append(a['id'])
-		bz.write(a['id'] + '\n')
-		print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
+	for a in z['data']:
+	    idh.append(a['id'])
+	    bz.write(a['id'] + '\n')
+	    print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
 	bz.close()
 	print '\r[✓] The Process Has Been Completed.'
 	print"\r[✓] Total IDs Founded : "+str(len(idh))
