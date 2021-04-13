@@ -665,7 +665,7 @@ def dump():
         time.sleep(0.01)
         log_menu()
     try:
-        r = requests.get('https://graph.facebook.com/me?access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/me?access_token=' + token)
         q = json.loads(r.text)
         z = q['name']
     except (KeyError, IOError):
@@ -722,19 +722,11 @@ def idfrom_teman():
         print logo
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         idt = raw_input(' User ID Target : ')
-        try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
-            op = json.loads(jok.text)
-	    z = op['name']
-            print ' Name User      : ' + op['name']
-        except KeyError:
-            print ' ID Publik Tidak Ada !'
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+    try:
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + token)
         q = json.loads(r.text)
 	z = q['name']
+	print ' Name User      : ' + op['name']
         jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/id_teman_from_teman.txt', 'w')
