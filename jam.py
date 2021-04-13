@@ -649,6 +649,25 @@ def dump():
         os.system('rm -rf login.txt')
         time.sleep(0.01)
         log_menu()
+    try:
+        r = requests.get('https://graph.facebook.com/me?access_token=' + token)
+        q = json.loads(r.text)
+        z = q['name']
+	except (KeyError, IOError):
+        print logo
+        print ''
+        print '\t Account Cheekpoint\x1b[0;97m'
+        print ''
+        os.system('rm -rf access_token.txt')
+        time.sleep(1)
+        log_menu()
+    except requests.exceptions.ConnectionError:
+        print logo
+        print ''
+        print '\t Turn on mobile data/wifi\x1b[0;97m'
+        print ''
+        raw_input(' \033[1;92mPress enter after turning on mobile data/wifi ')
+        menu()
 
     os.system('clear')
     print logo
