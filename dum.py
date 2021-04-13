@@ -49,7 +49,7 @@ except OSError:
 #done = True
 
 def keluar():
-    print '\x1b[0;91m•\x1b[0;93m Please Wait :)\x1b[0;97m'
+    print '\x1b[0;91m•\x1b[0;93m Sampai Jumpa :)\x1b[0;97m'
     os.sys.exit()
 
 
@@ -216,7 +216,6 @@ def dump_pilih():
 
 def idfrom_teman():
     os.system('clear')
-    print logo
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
@@ -226,7 +225,7 @@ def idfrom_teman():
         masuk()
 
     try:
-        os.mkdir('save')
+        os.mkdir('out')
     except OSError:
         pass
 
@@ -237,7 +236,7 @@ def idfrom_teman():
         try:
             jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
-            print ' Nama Akun      : ' + op['name']
+            print ' Target Name      : ' + op['name']
         except KeyError:
             print ' ID Publik Tidak Ada !'
             raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
@@ -251,16 +250,16 @@ def idfrom_teman():
         for a in z['friends']['data']:
             idfromteman.append(a['id'] + '|' + a['name'])
             bz.write(a['id'] + '|' + a['name'])
-            print '\r\x1b[0;97m',
+            print '\r\x1b[0;97m ',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m ' + a['id'] + '|' + a['name']
+            print '\x1b[0;97m' + a['id'] + '|' + a[['first_name']]
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
         print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
         done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mName File : ')
-        os.rename('save/id_jam.txt', 'save/' + done)
+        os.rename('out/id_teman.txt', 'out/' + done)
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File Save : save/' + done
         raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
