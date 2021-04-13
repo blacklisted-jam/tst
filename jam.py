@@ -508,11 +508,15 @@ def a_s():
 	r = requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+token)
 	z = json.loads(r.text)
 	hamza('[✓] Getting Friends Numeric IDs...')
-	print"--------------------------------------"
+	print 47 * '-'
 	bz = open('out/id_Extract.txt', 'w'
-	for i in z['data']:
-	bz.write(uid + '|' + nm)
-	print ("\r["+str(len(idh))+" ] => "+i['id']),;sys.stdout.flush();time.sleep(0.001)
+	for a in z['data']:
+            idteman.append(a['id'])
+            bz.write(a['id'] + '\n')
+            print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m)\x1b[0;94m > ',
+            sys.stdout.flush()
+            time.sleep(0.005)
+            print '\x1b[0;97m' + a['id']
 	        
 	bz.close()
 	print '\r[✓] The Process Has Been Completed.'
