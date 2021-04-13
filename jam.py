@@ -774,7 +774,7 @@ def idfrom_teman():
             dump()
         except requests.exceptions.ConnectionError:
             print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
-            keluar()
+            dump()
 
 if __name__ == '__main__':
     reg()
