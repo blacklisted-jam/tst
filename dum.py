@@ -245,7 +245,7 @@ def idfrom_teman():
 
         r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
         z = json.loads(r.text)
-        jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mMengambil Semua ID ...')
+        jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait ...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/id_teman_from_teman.txt', 'w')
         for a in z['friends']['data']:
@@ -254,7 +254,7 @@ def idfrom_teman():
             print '\r\x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m' + a['id'] + '|' + b['first_name']
+            print '\x1b[0;97m' + a['id'] + '|' + a['name']
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
