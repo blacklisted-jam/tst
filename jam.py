@@ -515,9 +515,9 @@ def a_s():
 	print"--------------------------------------"
 	bz = open('out/id_Extract.txt', 'w'
 	for a in z['friends']['data'])
-	    idh.append(a['id'])
-	    bz.write(a['id'] + '\n')
-	    print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
+	        idh.append(a['id'])
+	        bz.write(a['id'] + '\n')
+	        print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
 	bz.close()
 	print '\r[✓] The Process Has Been Completed.'
 	print"\r[✓] Total IDs Founded : "+str(len(idh))
