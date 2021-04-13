@@ -508,7 +508,8 @@ def a_s():
 	try:
 		jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
 		op = json.loads(jok.text)
-		print"[✓] Account Name : "+op["name"]
+		z = op['name']
+		print ' \033[1;92mCloning from: ' + z
 	except KeyError:
 		print"[!] Friend Not Found"
 		raw_input("Press Enter To Back ")
