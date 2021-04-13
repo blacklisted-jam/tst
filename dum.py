@@ -70,7 +70,7 @@ try:
 def dump():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        toket = open('access_token.txt', 'r')
     except IOError:
         print ' Token invalid '
         os.system('rm -rf login.txt')
@@ -106,7 +106,7 @@ def dump_pilih():
 def id_teman():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        toket = open('access_token.txt', 'r')
     except IOError:
         print ' Token invalid'
         os.system('rm -rf login.txt')
@@ -170,7 +170,7 @@ def id_teman():
 def idfrom_teman():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        toket = open('access_token.txt', 'r')
     except IOError:
         print ' Token Invalid'
         os.system('rm -rf login.txt')
