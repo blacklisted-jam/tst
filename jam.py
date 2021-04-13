@@ -19,21 +19,7 @@ from requests.exceptions import ConnectionError
 __author__ = 'Mr.James'
 __copyright = 'All rights reserved . Copyright  Mr.James'
 os.system('termux-setup-storage')
-try:
-    import mechanize
-except ImportError:
-    os.system('pip2 install mechanize')
 
-try:
-    import bs4
-except ImportError:
-    os.system('pip2 install bs4')
-
-try:
-    import requests
-except ImportError:
-    os.system('pip2 install requests')
-    os.system('python2 jam.py')
 try:
     os.mkdir('/sdcard/ids')
 except OSError:
@@ -71,7 +57,12 @@ logo = """
 \033[1;97m➣ Fb Page: Jam Shahrukh Official
 \033[1;91m-----------------------------------------------"""
 
-
+def hamza(z):
+	for e in z + '\n':
+		sys.stdout.write(e)
+		sys.stdout.flush()
+		time.sleep(0.03)
+		
 threads = []
 idfromteman = []
 
