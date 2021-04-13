@@ -104,7 +104,7 @@ def dump_pilih():
 def id_teman():
     os.system('clear')
     try:
-        toket = open('access_token.txt', 'r')
+        toket = open('login.txt','r').read()
     except IOError:
         print ' Token invalid'
         os.system('rm -rf login.txt')
