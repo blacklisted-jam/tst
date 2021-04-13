@@ -63,6 +63,9 @@ id = []
 idteman = []
 idfromteman = []
 
+try:
+    t_check = open('access_token.txt', 'r')
+    dump()
 
 def dump():
     os.system('clear')
