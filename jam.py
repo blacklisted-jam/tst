@@ -658,14 +658,14 @@ def jalan(z):
 def dump():
     os.system('clear')
     try:
-        token = open('access_token.txt', 'r').read()
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token invalid '
         os.system('rm -rf login.txt')
         time.sleep(0.01)
         log_menu()
     try:
-        r = requests.get('https://graph.facebook.com/me?access_token=' + token)
+        r = requests.get('https://graph.facebook.com/me?access_token=' + toket)
         q = json.loads(r.text)
         z = q['name']
     except (KeyError, IOError):
@@ -704,7 +704,7 @@ def dump():
 def idfrom_teman():
     os.system('clear')
     try:
-        token = open('access_token.txt', 'r').read()
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         time.sleep(0.01)
@@ -723,7 +723,7 @@ def idfrom_teman():
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         idt = raw_input(' User ID Target : ')
         try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + token)
+            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
             op = json.loads(jok.text)
 	    z = op['name']
             print ' Name User      : ' + op['name']
@@ -732,7 +732,7 @@ def idfrom_teman():
             raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + token)
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
         q = json.loads(r.text)
 	z = q['name']
         jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
