@@ -704,7 +704,7 @@ def dump():
 def idfrom_teman():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        token = open('access_token.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         time.sleep(0.01)
