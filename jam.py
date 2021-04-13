@@ -514,7 +514,7 @@ def a_s():
 	hamza('[✓] Getting Friends Numeric IDs...')
 	print"--------------------------------------"
 	bz = open('out/id_Extract.txt', 'w'
-	for a in z['data']:
+	for a in z['friends']['data'])
 	    idh.append(a['id'])
 	    bz.write(a['id'] + '\n')
 	    print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
