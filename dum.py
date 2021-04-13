@@ -222,11 +222,12 @@ def idfrom_teman():
             dump()
 
         r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
-        z = json.loads(r.text)
+        q = json.loads(r.text)
+	z = q['name']
         jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mMengambil Semua ID ...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/id_teman_from_teman.txt', 'w')
-        for a in z['friends']['data']:
+        for a in q['friends']['data']:
 	    uid = i['id']
             na = i['name']
             nm = na.rsplit(' ')[0]
