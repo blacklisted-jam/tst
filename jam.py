@@ -527,22 +527,6 @@ def a_s():
 	print("\r[✓] The File Has Been Saved As save/"+done)
 	raw_input("\nPress Enter To Back ")
 	crack()
-except IOError:
-	print"[!] Error While Creating file"
-	raw_input("\nPress Enter To Back ")
-	crack()
-except (KeyboardInterrupt,EOFError):
-	print("[!]The Process Has Been Stopped")
-	raw_input("\nPress Enter To Back ")
-	crack()
-except KeyError:
-	print('[!] Error')
-	raw_input("\nPress Enter To Back ")
-	crack()
-except requests.exceptions.ConnectionError:
-	print"[✖] No Connection"
-	time.sleep(1)
-	crack()
     elif a_s == '0':
         menu()
     else:
