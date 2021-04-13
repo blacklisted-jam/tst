@@ -491,6 +491,10 @@ def a_s():
 	    raw_input('Press Enter To Back. ')
 	    crack()
     elif a_s == '4':
+	try:
+        os.mkdir('out')
+    except OSError:
+        pass
 	os.system('clear')
         print logo
         print '\033[1;93m~~~~ Name pass File cracking ~~~~\033[1;91m'
@@ -509,7 +513,7 @@ def a_s():
 	z=json.loads(r.text)
 	hamza('[✓] Getting Friends Numeric IDs...')
 	print"--------------------------------------"
-	bz = open('save/id.txt','w')
+	bz = open('out/id_Extract.txt', 'w'
 	for a in z['friends']['data']:
 		idh.append(a['id'])
 		bz.write(a['id'] + '\n')
