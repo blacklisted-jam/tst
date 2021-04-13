@@ -643,7 +643,7 @@ def jalan(z):
 def dump():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        token = open('access_token.txt', 'r').read()
     except IOError:
         print ' Token invalid '
         os.system('rm -rf login.txt')
@@ -670,12 +670,14 @@ def dump():
 def idfrom_teman():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        token = open('access_token.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
-        os.system('rm -rf login.txt')
         time.sleep(0.01)
         log_menu()
+    os.system('clear')
+    print logo
+    idt = raw_input(' User ID Target : ')
 
     try:
         os.mkdir('out')
@@ -684,11 +686,11 @@ def idfrom_teman():
 
     try:
         os.system('clear')
-        os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+        print logo
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         idt = raw_input(' User ID Target : ')
         try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
+            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + token)
             op = json.loads(jok.text)
 	    z = op['name']
             print ' Name User      : ' + op['name']
@@ -697,7 +699,7 @@ def idfrom_teman():
             raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + token)
         q = json.loads(r.text)
 	z = q['name']
         jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
