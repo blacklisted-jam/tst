@@ -63,17 +63,109 @@ id = []
 idteman = []
 idfromteman = []
 
+def masuk():
+    os.system('clear')
+    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print 50 * '\x1b[0;91m\xe2\x94\x80'
+    time.sleep(0.07)
+    print '\x1b[0;97m1).\x1b[0;97m Login Via Token Facebook'
+    time.sleep(0.07)
+    print '\x1b[0;97m2).\x1b[0;97m Login Via Cookie Facebook'
+    time.sleep(0.07)
+    print '\x1b[0;91m0\x1b[0;97m).\x1b[0;97m Keluar'
+    time.sleep(0.07)
+    print 50 * '\x1b[0;91m\xe2\x94\x80'
+    time.sleep(0.07)
+    pilih_masuk()
+
+
+def pilih_masuk():
+    msuk = raw_input('* --> ')
+    if msuk == '':
+        print ' Isi Yg Benar Sayang!'
+        pilih_masuk()
+    elif msuk == '1':
+        login_token()
+    elif msuk == '2':
+        login_cookie()
+    elif msuk == '0':
+        os.sys.exit()
+    else:
+        print ' Isi Yg Benar Sayang!'
+        pilih_masuk()
+
+def login_token():
+    os.system('clear')
+    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print 50 * '\x1b[0;91m\xe2\x94\x80'
+    toket = raw_input(' Token \x1b[0;94m>\x1b[0;93m ')
+    try:
+        otw = requests.get('https://graph.facebook.com/me?access_token=' + toket)
+        a = json.loads(otw.text)
+        nama = a['name']
+        zedd = open('login.txt', 'w')
+        zedd.write(toket)
+        zedd.close()
+        jalan ('\x1b[0;92m Login Berhasil !\x1b[0;97m ')
+        dump()
+    except KeyError:
+        print 'Token salah !'
+        time.sleep(1.7)
+        masuk()
+    except requests.exceptions.SSLError:
+        print ' Koneksi Bermasalah'
+        exit()
+
+
+def login_cookie():
+    os.system('clear')
+    os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
+    print '\x1b[0;91m\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80'
+    time.sleep(0.07)
+    try:
+        cookie = raw_input(' Cookie \x1b[0;94m>\x1b[0;93m ')
+        data = {'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/68.0.3438.0 Safari/537.36', 'referer': 'https://m.facebook.com/', 
+           'host': 'm.facebook.com', 
+           'origin': 'https://m.facebook.com', 
+           'upgrade-insecure-requests': '1', 
+           'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7', 
+           'cache-control': 'max-age=0', 
+           'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8', 
+           'content-type': 'text/html; charset=utf-8', 
+           'cookie': cookie}
+        coki = requests.get('https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed#_=_', headers=data)
+        cari = re.search('(EAAA\\w+)', coki.text)
+        hasil = cari.group(1)
+        zedd = open('login.txt', 'w')
+        zedd.write(hasil)
+        zedd.close()
+        jalan ('\x1b[0;92m Login Berhasil !\x1b[0;97m ')
+        time.sleep(2)
+        dump()
+    except AttributeError:
+        print ' Cookie salah !'
+        time.sleep(2)
+        masuk()
+    except UnboundLocalError:
+        print ' Cookie salah !'
+        time.sleep(2)
+        masuk()
+    except requests.exceptions.SSLError:
+        os.system('clear')
+        print ' Koneksi Bermasalah'
+        exit()
+
+
 
 def dump():
-    global toket
     os.system('clear')
     try:
-        toket = open('access_token.txt', 'r')
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token invalid '
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        os.system('python2 jam.py')
+        masuk()
 
     os.system('clear')
     os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
@@ -104,12 +196,12 @@ def dump_pilih():
 def id_teman():
     os.system('clear')
     try:
-        toket = open('login.txt','r').read()
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        os.system('python2 jam.py')
+        masuk()
 
     try:
         os.mkdir('out')
@@ -168,12 +260,12 @@ def id_teman():
 def idfrom_teman():
     os.system('clear')
     try:
-        toket = open('access_token.txt', 'r')
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         os.system('rm -rf login.txt')
         time.sleep(0.01)
-        os.system('python2 jam.py')
+        masuk()
 
     try:
         os.mkdir('out')
@@ -240,4 +332,3 @@ if __name__ == '__main__':
 	dump()
 	masuk()
         
-
