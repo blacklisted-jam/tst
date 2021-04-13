@@ -366,6 +366,7 @@ def crack():
     print '\033[1;92m[1] Public id cloning'
     print '\033[1;92m[2] Followers cloning'
     print '\033[1;92m[3] File cloning'
+    print '\033[1;92m[3] File Extract'
     print '\033[1;92m[0] Back'
     a_s()
 
