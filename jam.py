@@ -658,7 +658,7 @@ def jalan(z):
 def dump():
     os.system('clear')
     try:
-        toket = open('login.txt', 'r').read()
+        token = open('access_token.txt', 'r').read()
     except IOError:
         print ' Token invalid '
         os.system('rm -rf login.txt')
