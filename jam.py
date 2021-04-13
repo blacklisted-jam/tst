@@ -704,7 +704,7 @@ def dump():
 def idfrom_teman():
     os.system('clear')
     try:
-        token = open('access_token.txt', 'r').read()
+        toket = open('login.txt', 'r').read()
     except IOError:
         print ' Token Invalid'
         time.sleep(0.01)
@@ -721,8 +721,16 @@ def idfrom_teman():
         os.system('clear')
         print logo
         print 50 * '\x1b[1;91m\xe2\x94\x80'
-        idt = raw_input(' User ID Target : ')
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + token)
+	idt = raw_input(' User ID Target : ')
+	try:
+            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
+            op = json.loads(jok.text)
+            print ' Nama Akun      : ' + op['name']
+        except KeyError:
+            print ' ID Publik Tidak Ada !'
+            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
+            dump()
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
         q = json.loads(r.text)
 	z = q['name']
 	print ' Name User      : ' + op['name']
