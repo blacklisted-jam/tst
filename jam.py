@@ -776,6 +776,5 @@ def idfrom_teman():
             print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
             keluar()
 
-		
-    if __name__ == '__main__':
-        reg()
+if __name__ == '__main__':
+    reg()
