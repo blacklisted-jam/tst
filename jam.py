@@ -511,10 +511,6 @@ def a_s():
 	print"--------------------------------------"
 	bz = open('out/id_Extract.txt', 'w'
 	for i in z['data']:
-            uid = i['id']
-            na = i['name']
-            nm = na.rsplit(' ')[0]
-            uid.append(uid + '|' + nm)
 	bz.write(uid + '|' + nm)
 	print ("\r["+str(len(idh))+" ] => "+i['id']),;sys.stdout.flush();time.sleep(0.001)
 	        
