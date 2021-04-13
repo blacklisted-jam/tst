@@ -491,10 +491,6 @@ def a_s():
 	    raw_input('Press Enter To Back. ')
 	    crack()
     elif a_s == '4':
-	try:
-            os.mkdir('out')
-        except OSError:
-            pass
 	os.system('clear')
         print logo
         print '\033[1;93m~~~~ Name pass File cracking ~~~~\033[1;91m'
