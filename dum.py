@@ -227,12 +227,15 @@ def idfrom_teman():
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/id_teman_from_teman.txt', 'w')
         for a in z['friends']['data']:
-            idfromteman.append(a['id'] + op['name'])
-            bz.write(a['id'] + op['name'])
+	    uid = i['id']
+            na = i['name']
+            nm = na.rsplit(' ')[0]
+            idfromteman.append(uid + '|' + nm)
+            bz.write(uid + '|' + nm)
             print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m ' + a['id'] + op['name']
+            print '\x1b[0;97m ' + i['id'] + '|' + i['name']
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
