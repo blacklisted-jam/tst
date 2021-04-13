@@ -696,7 +696,6 @@ def idfrom_teman():
         log_menu()
     os.system('clear')
     print logo
-    idt = raw_input(' User ID Target : ')
 
     try:
         os.mkdir('out')
