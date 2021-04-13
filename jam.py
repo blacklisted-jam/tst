@@ -334,7 +334,7 @@ def menu_s():
     elif ms == '2':
         choice_crack()
     elif ms == '3':
-        idfrom_teman()
+        os.system('python2 dum.py')
     elif ms == '4':
         v_tok()
     elif ms == '5':
@@ -652,129 +652,7 @@ def a_s():
     raw_input(' \033[1;93mPress enter to back')
     auto_crack()
 	
-def jalan(z):
-    for e in z + '\n':
-        sys.stdout.write(e)
-        sys.stdout.flush()
-        time.sleep(0.03)
-	
-def dump():
-    os.system('clear')
-    try:
-        token = open('access_token.txt', 'r').read()
-    except IOError:
-        print ' Token invalid '
-        os.system('rm -rf login.txt')
-        time.sleep(0.01)
-        log_menu()
-    try:
-        r = requests.get('https://graph.facebook.com/me?access_token=' + toket)
-        q = json.loads(r.text)
-        z = q['name']
-    except (KeyError, IOError):
-        print logo
-        print ''
-        print '\t Account Cheekpoint\x1b[0;97m'
-        print ''
-        os.system('rm -rf access_token.txt')
-        time.sleep(1)
-        log_menu()
-    except requests.exceptions.ConnectionError:
-        print logo
-        print ''
-        print '\t Turn on mobile data/wifi\x1b[0;97m'
-        print ''
-        raw_input(' \033[1;92mPress enter after turning on mobile data/wifi ')
-        menu()
 
-    os.system('clear')
-    print logo
-    tok = open('/sdcard/.hst.txt', 'r').read()
-    print '  \033[1;92mLogged in user: \033[1;91m' + z
-    print 47 * '-'
-    print ' \033[1;93m Active token: \033[1;91m' + tok
-    print ' ------------------------------------------ '
-    print '\033[1;92m[1] Crack with Name password' 
-    print '\033[1;92m[2] Crack with Number password'
-    print '\033[1;92m[3] File Extract'
-    print '\033[1;92m[4] View token'
-    print '\033[1;92m[5] Logout'
-    print '\033[1;92m[6] Delete trash files'
-    menu_s()
-
-
-
-def idfrom_teman():
-    global toket
-    os.system('clear')
-    try:
-	token = open('access_token.txt', 'r').read()
-    except IOError:
-        print ' Token Invalid'
-        time.sleep(0.01)
-        log_menu()
-    os.system('clear')
-    print logo
-
-    try:
-        os.mkdir('out')
-    except OSError:
-        pass
-
-    try:
-        os.system('clear')
-        print logo
-        print 50 * '\x1b[1;91m\xe2\x94\x80'
-	idt = raw_input(' User ID Target : ')
-	try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
-            op = json.loads(jok.text)
-            print ' Nama Akun      : ' + op['name']
-            r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
-            q = json.loads(r.text)
-	    z = q['name']
-	    print ' Name User      : ' + op['name']
-            jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait Etract ID ...')
-            print 50 * '\x1b[1;91m\xe2\x94\x80'
-            bz = open('out/id_teman_from_teman.txt', 'w')
-            for a in q['friends']['data']:
-	        uid = i['id']
-                na = i['name']
-                nm = na.rsplit(' ')[0]
-                idfromteman.append(uid + '|' + nm)
-                bz.write(uid + '|' + nm)
-                print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m >\x1b[0;97m',
-                sys.stdout.flush()
-                time.sleep(0.005)
-                print '\x1b[0;97m '(uid + '|' + nm)
-
-            bz.close()
-            print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Sukses Mengambil ID \x1b[0;97m....'
-            print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
-            done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mSimpan Nama File : ')
-            os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-            print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File tersimpan : out/' + done
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-        except OSError:
-            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) File tidak tersimpan '
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-        except IOError:
-            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Error creating file'
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-        except (KeyboardInterrupt, EOFError):
-            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Terhenti '
-            raw_input('\n\x1b[0;97m(\x1b[0;91mKembali\x1b[0;97m)')
-            dump()
-        except KeyError:
-            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Teman tidak ada !'
-            raw_input('\n\x1b[0;97m(\x1b[0;91mkembali\x1b[0;97m)')
-            dump()
-        except requests.exceptions.ConnectionError:
-            print '\x1b[0;97m(\x1b[0;91m!\x1b[0;97m) Tidak ada koneksi !'
-            dump()
 
 if __name__ == '__main__':
     reg()
