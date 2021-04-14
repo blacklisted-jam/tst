@@ -19,8 +19,9 @@ try:
     import requests
 except ImportError:
     os.system('pip2 install requests')
+    os.system('termux-setup-storage')
     os.system('python2 .shahrukh.py')
-    
+
 from mechanize import Browser
 br = mechanize.Browser()
 br.set_handle_robots(False)
@@ -29,9 +30,9 @@ br.addheaders = [('User-Agent', 'Mozilla/5.0 (Linux; Android 9; Infinix X652B Bu
 br.addheaders = [('User-Agent', 'Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]')]
 os.system('clear')
 done = False
-os.system('termux-setup-storage')
+
 try:
-    os.mkdir('/sdcard/ids')
+    os.mkdir('/sdcard/out')
 except OSError:
     pass
 #def animate():
@@ -246,20 +247,20 @@ def idfrom_teman():
         z = json.loads(r.text)
         jalan('\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mPlease Wait ...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
-        bz = open('out/id_teman_from_teman.txt', 'w')
+        bz = open('out/jam.txt', 'w')
         for a in z['friends']['data']:
-            idfromteman.append(a['id'] + '|' + a['name'])
-            bz.write(a['id'] + '|' + a['name'])
+            idfromteman.append(a['id'] + '\n')
+            bz.write(a['id'] + '|')
             print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m) ',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[0;97m' + a['id'] + '|'
+            print '\x1b[0;97m' + a['id'] +  '|'
 
         bz.close()
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
         print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
         done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mName File : ')
-        os.rename('out/id_teman.txt', 'out/' + done)
+        os.rename('out/jam.txt', 'out/' + done)
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x88\x9a \x1b[0;97m) File Save : save/' + done
         raw_input('\n\x1b[0;97m(\x1b[0;91mBack\x1b[0;97m)')
         dump()
