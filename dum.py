@@ -250,7 +250,7 @@ def idfrom_teman():
         for a in z['friends']['data']:
             idfromteman.append(a['id'] + '|' + a['name'])
             bz.write(a['id'] + '|' + a['name'])
-            print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m ',
+            print '\r\x1b[0;97m(\x1b[0;93m' + str(len(idteman)) + '\x1b[0;97m) ',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[0;97m' + a['id'] + '|'
