@@ -254,7 +254,7 @@ def idfrom_teman():
             print '\r \x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
-            print ('\x1b[0;97m' + a['id'] ' | '
+            print '\x1b[0;97m' + a['id'] '|'
 
         bz.close()
 	print 50 * '\x1b[1;91m\xe2\x94\x80'
