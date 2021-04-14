@@ -249,8 +249,8 @@ def idfrom_teman():
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/jam.txt', 'w')
         for a in z['friends']['data']:
-            idfromteman.append(a['id'] + '\n')
-            bz.write(a['id'] + '|')
+            idfromteman.append(a['id'] + name'\n')
+            bz.write(a['id'] + '|' + name)
             print '\r \x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
