@@ -250,7 +250,7 @@ def idfrom_teman():
         bz = open('out/jam.txt', 'w')
         for a in z['friends']['data']:
             idfromteman.append(a['id']
-            bz.write(a['id'] + '|' + name)
+            bz.write(a['id'] + '|'
             print '\r \x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
