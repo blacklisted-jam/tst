@@ -251,12 +251,13 @@ def idfrom_teman():
         for a in z['friends']['data']:
             idfromteman.append(a['id'] + '\n')
             bz.write(a['id'] + '|')
-            print '\r\x1b[0;97m\n ',
+            print '\r\x1b[0;97m(\x1b[0;97m' + str(len(idfromteman)) + '\x1b[0;97m)\x1b[0;94m \x1b[0;97m',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[0;97m' + a['id'] +  '|' 
 
         bz.close()
+	print 50 * '\x1b[1;91m\xe2\x94\x80'
         print '\r\x1b[0;97m(\x1b[0;92m \xe2\x9c\x93 \x1b[0;97m)\x1b[0;97m Exract ID Done \x1b[0;97m....'
         print '\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) Total ID : %s' % len(idfromteman)
         done = raw_input('\r\x1b[0;97m(\x1b[0;94m\xe2\x80\xa2\x1b[0;97m) \x1b[0;97mName File : ')
